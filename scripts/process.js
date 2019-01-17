@@ -1,12 +1,12 @@
+// parse raw dump of tolls into a clean JSON file.
+// to be run before info.js
+
 const fs = require('fs');
 const tabletojson = require('tabletojson');
 
 data = JSON.parse(fs.readFileSync('raw.json', {'encoding': 'utf-8'}));
 
-const allBooths = {
-    'type': 'FeatureCollection',
-    'features': []
-};
+const allBooths = [];
 
 const parseHtml = (thisBooth) => {
     json = tabletojson.convert(thisBooth.html);
@@ -106,15 +106,7 @@ data.d.forEach(element => {
     thisBooth.html = element.HtmlPopup;
     thisBooth = parseHtml(thisBooth);
 
-    let feature = {
-        'type': 'Feature',
-        'geometry': {
-            'type': 'Point',
-            'coordinates': [thisBooth.lon, thisBooth.lat]
-        },
-        'properties': thisBooth
-    }
-    allBooths.features.push(feature);
+    allBooths.push(thisBooth);
 });
 
 console.log(JSON.stringify(allBooths));

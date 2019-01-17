@@ -9,6 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "d3-queue": "^3.0.7",
+    "moment": "^2.23.0",
+    "request": "^2.88.0",
     "tabletojson": "^1.0.1"
   }
 }

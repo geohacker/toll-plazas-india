@@ -2,6 +2,8 @@
 
 Toll Plaza data from the National Highways Authority of India. This is scraped from the [Toll Information System](http://tis.nhai.gov.in).
 
+[Here's a map](https://api.mapbox.com/styles/v1/geohacker/cjr0mtbwf0q8e2sqr5ilfteqd.html?fresh=true&title=true&access_token=pk.eyJ1IjoiZ2VvaGFja2VyIiwiYSI6ImFIN0hENW8ifQ.GGpH9gLyEg0PZf3NPQ7Vrg#4.58/20.76/83.45)
+
 ![screen shot 2019-01-17 at 6 46 28 pm](https://user-images.githubusercontent.com/371666/51321898-fe409d80-1a89-11e9-9ac7-1ba825960b6d.png)
 
 

@@ -2,6 +2,9 @@
 
 Toll Plaza data from the National Highways Authority of India. This is scraped from the [Toll Information System](http://tis.nhai.gov.in).
 
+![screen shot 2019-01-17 at 6 46 28 pm](https://user-images.githubusercontent.com/371666/51321898-fe409d80-1a89-11e9-9ac7-1ba825960b6d.png)
+
+
 ## Data
 
 * Contains 468 toll plazas with;

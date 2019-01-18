@@ -28,3 +28,7 @@ Toll Plaza data from the National Highways Authority of India. This is scraped f
 
 * `process.js` - cleans up the raw.json downloaded directly from http://tis.nhai.gov.in/tollplazasonmap?language=en
 * `info.js` - fetches additional metadata
+
+## License
+
+This data came from NHAI and should ideally be under the [Government Open Data License](https://data.gov.in/government-open-data-license-india)

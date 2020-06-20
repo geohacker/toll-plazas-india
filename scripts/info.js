@@ -5,8 +5,9 @@ const d3 = require('d3-queue');
 const cheerio = require('cheerio');
 const request = require('request');
 const moment = require('moment');
+moment.suppressDeprecationWarnings = true;
 
-const tolls = JSON.parse(fs.readFileSync('tolls.json', {encoding: 
+const tolls = JSON.parse(fs.readFileSync('./data/tolls-basic.json', {encoding: 
 'utf-8'}));
 
 let tollUrl = 'http://tis.nhai.gov.in/TollInformation?TollPlazaID=';
@@ -67,15 +68,19 @@ const parseTable = (html, id) => {
     });
     let thisToll = tollLookup[id];
     Object.keys(thisInfo).forEach(key => {
-        if (key === 'Date of fee notification') {
-            thisToll[tags[key]] = moment(thisInfo[key].split()[0]).format("DD-MM-YYYY");
-        } else if (key === 'Commercial Operation Date') {
-            thisToll[tags[key]] = moment(thisInfo[key]).format("DD-MM-YYYY");
-        } else if (key === 'Traffic (PCU/day)' || key === 'Target Traffic (PCU/day)' || key === 'Cumulative Toll Revenue (in Rs. Cr.)') {
-            thisToll[tags[key]] = parseFloat(thisInfo[key].split()[0]);
-        }
-        else {
-            thisToll[tags[key]] = thisInfo[key];
+        try {
+            if (key === 'Date of fee notification') {
+                thisToll[tags[key]] = moment(thisInfo[key].split()[0]).format("DD-MM-YYYY");
+            } else if (key === 'Commercial Operation Date') {
+                thisToll[tags[key]] = moment(thisInfo[key]).format("DD-MM-YYYY");
+            } else if (key === 'Traffic (PCU/day)' || key === 'Target Traffic (PCU/day)' || key === 'Cumulative Toll Revenue (in Rs. Cr.)') {
+                thisToll[tags[key]] = parseFloat(thisInfo[key].split()[0]);
+            }
+            else {
+                thisToll[tags[key]] = thisInfo[key];
+            }
+        } catch (error) {
+            console.error('Failed parsing', key, thisInfo[key])
         }
     })
     delete thisToll.traffic;

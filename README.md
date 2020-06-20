@@ -25,7 +25,12 @@ Toll Plaza data from the National Highways Authority of India. This is scraped f
 
 
 ## Scripts
+To update the dataset:
+* Clone this repository. `git clone https://github.com/geohacker/toll-plazas-india.git`
+* Go inside the repo directory. `cd toll-plazas-india`
+* Just the fetch and process script. `./fetch-and-process.sh`
 
+The individual scripts in the scripts directory are:
 * `process.js` - cleans up the raw.json downloaded directly from http://tis.nhai.gov.in/tollplazasonmap?language=en
 * `info.js` - fetches additional metadata
 

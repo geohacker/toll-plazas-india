@@ -1,7 +1,7 @@
 const fs = require('fs');
 const moment = require('moment');
 
-tolls = JSON.parse(fs.readFileSync('data/tolls-with-metadata.json', {encoding: 'utf-8'}));
+tolls = JSON.parse(fs.readFileSync('./data/tolls-with-metadata.json', {encoding: 'utf-8'}));
 
 const featureCollection = {
     'type': 'FeatureCollection',

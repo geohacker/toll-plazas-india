@@ -4,7 +4,7 @@
 const fs = require('fs');
 const tabletojson = require('tabletojson');
 
-data = JSON.parse(fs.readFileSync('raw.json', {'encoding': 'utf-8'}));
+data = JSON.parse(fs.readFileSync('./data/raw.json', {'encoding': 'utf-8'}));
 
 const allBooths = [];
 

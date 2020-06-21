@@ -1,6 +1,6 @@
 #!/bin/bash
 
-timestamp=$(date +%d-%m-%Y-%H-%M)
+timestamp=$(date +%d-%m-%Y)
 
 echo '# Install packages...'
 npm install

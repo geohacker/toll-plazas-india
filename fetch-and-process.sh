@@ -22,7 +22,7 @@ curl 'http://tis.nhai.gov.in/TollPlazaService.asmx/GetTollPlazaInfoForMapOnPC' \
   --output data/raw.json
 
 echo '# Preparing a JSON...'
-node scripts/process.js >> data/tolls-basic.json
+node scripts/process.js > data/tolls-basic.json
 
 echo '# Fetch additional information for each toll plaza'
 node scripts/info.js > data/tolls-with-metadata.json

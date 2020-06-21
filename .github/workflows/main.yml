@@ -20,6 +20,8 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout the repo
       uses: actions/checkout@v2
+      with:
+        ref: master
 
     # Runs a single command using the runners shell
     - name: Run the script to fetch data
@@ -32,6 +34,6 @@ jobs:
         author_name: Sajjad Anwar
         author_email: sajjadkm@gmail.com
         message: "Update data"
-        add: "data/*"
+        add: ".*"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

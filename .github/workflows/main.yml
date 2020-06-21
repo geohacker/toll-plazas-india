@@ -26,6 +26,9 @@ jobs:
     # Runs a single command using the runners shell
     - name: Run the script to fetch data
       run: ./fetch-and-process.sh
+      
+    - name: Check if files have changed
+      run: git status -s
 
     # Commit the changes
     - name: Commit changes

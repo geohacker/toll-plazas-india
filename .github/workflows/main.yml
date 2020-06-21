@@ -34,6 +34,6 @@ jobs:
         author_name: Sajjad Anwar
         author_email: sajjadkm@gmail.com
         message: "Update data"
-        add: ".*"
+        add: "."
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

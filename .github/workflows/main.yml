@@ -21,7 +21,7 @@ jobs:
     - name: Checkout the repo
       uses: actions/checkout@v2
       with:
-        ref: master
+        ref: ${{ github.head_ref }}
 
     # Runs a single command using the runners shell
     - name: Run the script to fetch data

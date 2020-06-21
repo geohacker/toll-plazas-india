@@ -1,8 +1,11 @@
 #!/bin/bash
 
+timestamp=$(date +%d-%m-%Y-%H-%M)
+
 echo '# Install packages...'
 npm install
-mkdir -p data
+mkdir -p data/$timestamp
+outputdir="data/$timestamp"
 
 echo '# Downloading data from tis.nhai.gov.in...'
 curl 'http://tis.nhai.gov.in/TollPlazaService.asmx/GetTollPlazaInfoForMapOnPC' \
@@ -19,18 +22,18 @@ curl 'http://tis.nhai.gov.in/TollPlazaService.asmx/GetTollPlazaInfoForMapOnPC' \
   -H 'Cookie: ASP.NET_SessionId=sq2jlutmtqv1ohjyodtuzqpu' \
   --compressed \
   --insecure \
-  --output data/raw.json
+  --output $outputdir/raw.json
 
 echo '# Preparing a JSON...'
-node scripts/process.js > data/tolls-basic.json
+node scripts/process.js $outputdir/raw.json > $outputdir/tolls-basic.json
 
 echo '# Fetch additional information for each toll plaza'
-node scripts/info.js > data/tolls-with-metadata.json
+node scripts/info.js $outputdir/tolls-basic.json > $outputdir/tolls-with-metadata.json
 
 echo '# Convert to GeoJSON...'
-node scripts/togeojson.js > data/tolls-with-metadata.geojson
+node scripts/togeojson.js $outputdir/tolls-with-metadata.json > $outputdir/tolls-with-metadata.geojson
 
 echo '# Convert to CSV...'
-./node_modules/json2csv/bin/json2csv.js -i data/tolls-with-metadata.json -o data/tolls-with-metadata.csv
+./node_modules/json2csv/bin/json2csv.js -i $outputdir/tolls-with-metadata.json -o $outputdir/tolls-with-metadata.csv
 
 echo '# Done!'

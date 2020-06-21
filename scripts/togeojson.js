@@ -1,7 +1,10 @@
 const fs = require('fs');
 const moment = require('moment');
+const argv = require('minimist')(process.argv.slice(2));
+const path = require('path');
 
-tolls = JSON.parse(fs.readFileSync('./data/tolls-with-metadata.json', {encoding: 'utf-8'}));
+const filename = argv._[0]
+tolls = JSON.parse(fs.readFileSync(path.join(__dirname, '..', filename), {'encoding': 'utf-8'}));
 
 const featureCollection = {
     'type': 'FeatureCollection',

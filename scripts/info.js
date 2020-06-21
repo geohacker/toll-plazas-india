@@ -6,9 +6,11 @@ const cheerio = require('cheerio');
 const request = require('request');
 const moment = require('moment');
 moment.suppressDeprecationWarnings = true;
+const argv = require('minimist')(process.argv.slice(2));
+const path = require('path');
 
-const tolls = JSON.parse(fs.readFileSync('./data/tolls-basic.json', {encoding: 
-'utf-8'}));
+const filename = argv._[0]
+const tolls = JSON.parse(fs.readFileSync(path.join(__dirname, '..', filename), {'encoding': 'utf-8'}));
 
 let tollUrl = 'http://tis.nhai.gov.in/TollInformation?TollPlazaID=';
 

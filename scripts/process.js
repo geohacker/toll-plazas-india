@@ -3,8 +3,11 @@
 
 const fs = require('fs');
 const tabletojson = require('tabletojson');
+const argv = require('minimist')(process.argv.slice(2));
+const path = require('path');
 
-data = JSON.parse(fs.readFileSync('./data/raw.json', {'encoding': 'utf-8'}));
+const filename = argv._[0]
+const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', filename), {'encoding': 'utf-8'}));
 
 const allBooths = [];
 

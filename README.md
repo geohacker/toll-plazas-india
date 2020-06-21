@@ -24,6 +24,9 @@ Toll Plaza data from the National Highways Authority of India. This is scraped f
 * Target traffic per day in PCU
 
 
+## Auto fetching
+The repo uses Github Actions to update the data everyday. A new directory is created inside the data folder for each day. This does not do any diffing. 
+
 ## Scripts
 To update the dataset:
 * Clone this repository. `git clone https://github.com/geohacker/toll-plazas-india.git`

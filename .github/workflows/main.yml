@@ -6,7 +6,7 @@ name: Update data
 # events but only for the master branch
 on:
   schedule:
-  - cron: "*/15 * * * *"
+  - cron: "*/5 * * * *"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -32,6 +32,6 @@ jobs:
         author_name: Sajjad Anwar
         author_email: sajjadkm@gmail.com
         message: "Update data"
-        add: "data/"
+        add: "data/*"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -25,7 +25,7 @@ Toll Plaza data from the National Highways Authority of India. This is scraped f
 
 
 ## Auto fetching
-The repo uses Github Actions to update the data everyday. A new directory is created inside the data folder for each day. This does not do any diffing. 
+The repo uses Github Actions to update the data every month. A new directory is created inside the data folder for each month/day. This does not do any diffing. 
 
 ## Scripts
 To update the dataset:

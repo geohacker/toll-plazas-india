@@ -8,7 +8,7 @@ mkdir -p data/$timestamp
 outputdir="data/$timestamp"
 
 echo '# Downloading data from tis.nhai.gov.in...'
-curl 'http://tis.nhai.gov.in/TollPlazaService.asmx/GetTollPlazaInfoForMapOnPC' \
+curl 'https://tis.nhai.gov.in/TollPlazaService.asmx/GetTollPlazaInfoForMapOnPC' \
   -X 'POST' \
   -H 'Connection: keep-alive' \
   -H 'Content-Length: 0' \
@@ -16,8 +16,8 @@ curl 'http://tis.nhai.gov.in/TollPlazaService.asmx/GetTollPlazaInfoForMapOnPC' \
   -H 'X-Requested-With: XMLHttpRequest' \
   -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36' \
   -H 'Content-Type: application/json; charset=utf-8' \
-  -H 'Origin: http://tis.nhai.gov.in' \
-  -H 'Referer: http://tis.nhai.gov.in/map1.htm' \
+  -H 'Origin: https://tis.nhai.gov.in' \
+  -H 'Referer: https://tis.nhai.gov.in/map1.htm' \
   -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
   -H 'Cookie: ASP.NET_SessionId=sq2jlutmtqv1ohjyodtuzqpu' \
   --compressed \

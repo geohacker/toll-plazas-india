@@ -12,7 +12,7 @@ const path = require('path');
 const filename = argv._[0]
 const tolls = JSON.parse(fs.readFileSync(path.join(__dirname, '..', filename), {'encoding': 'utf-8'}));
 
-let tollUrl = 'http://tis.nhai.gov.in/TollInformation?TollPlazaID=';
+let tollUrl = 'https://tis.nhai.gov.in/TollInformation?TollPlazaID=';
 
 const info = {};
 const tollLookup = {};
